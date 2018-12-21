@@ -1,0 +1,12 @@
+#!/bin/sh
+#
+# Check git identity
+#
+if ! git identity check; then
+	if ! git identity; then
+		echo 'no identity set for this repository!'
+		exit 1
+	fi
+	echo 'identity set, re-commit for changes to take effect...'
+	exit 1
+fi
